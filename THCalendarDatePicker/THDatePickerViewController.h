@@ -9,19 +9,8 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-#if __has_feature(modules)
-@import KNSemiModalViewController_hons82.UIViewController_KNSemiModal;
-#else
-#import <KNSemiModalViewController_hons82/UIViewController+KNSemiModal.h>
-#endif
-
+#import <KNSemiModalViewController/UIViewController+KNSemiModal.h>
 #import "THDateDay.h"
-
-typedef NS_ENUM(NSInteger, THDatePickerSelectionType) {
-    THDatePickerSelectionTypeSingle,
-    THDatePickerSelectionTypeMulti,
-    THDatePickerSelectionTypeRange
-};
 
 @class THDatePickerViewController;
 
@@ -42,6 +31,8 @@ typedef NS_ENUM(NSInteger, THDatePickerSelectionType) {
 @interface THDatePickerViewController : UIViewController <THDateDayDelegate>
 
 +(THDatePickerViewController *)datePicker;
+@property (strong, nonatomic) NSString *titleDescText;
+@property (weak, nonatomic) IBOutlet UILabel *titleDesc;
 
 @property (strong, nonatomic) NSDate * date;
 @property (weak, nonatomic) id<THDatePickerDelegate> delegate;
@@ -67,7 +58,7 @@ typedef NS_ENUM(NSInteger, THDatePickerSelectionType) {
 /*! Enable Multi Day Selection
  * \param allow selection of multiple days
  */
-- (void)setSelectionType:(THDatePickerSelectionType)type;
+- (void)setAllowMultiDaySelection:(BOOL)allow;
 
 /*! Enable Ok Button when selected Date has already been selected
  * \param allow should show ok button

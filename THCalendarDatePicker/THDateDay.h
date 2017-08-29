@@ -33,7 +33,6 @@
 - (IBAction)dateButtonTapped:(id)sender;
 
 - (void)setLightText:(BOOL)light;
-- (void)setIsDayInRange;
 - (void)setSelected:(BOOL)selected;
 - (void)setEnabled:(BOOL)enabled;
 - (void)indicateDayHasItems:(BOOL)indicate;
